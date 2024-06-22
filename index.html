@@ -1,20 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Les petits plats</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="https://kit.fontawesome.com/4bff0d411a.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
 
+<body>
+
+    <header>
+        <div class="p-5 pb-5 d-flex text-white">
+            <h1 class="mr-3 h3">LES PETITS PLATS</h1>
+            <i class="fa-regular fa-circle-dot align-self-center px-1"></i>
+        </div>
+        <div class="container text-center searchContainer">
+            <h2 class="pb-4 text-warning h1">CHERCHEZ PARMI PLUS DE 1500 RECETTES <br> DU QUOTIDIEN,SIMPLES ET
+                DÉLICIEUSES</h2>
+            <div class="input-group search-bar searchStyle">
+                <input type="text" class="form-control rounded formHeight"
+                    placeholder="Rechercher une recette, un ingrédient..." aria-label="Search">
+                <span class="clear-icon position-absolute d-none"><i class="fas fa-times"></i></span>
+                <button class="btn btn-dark search-button rounded colorHover" type="button" aria-label="Rechercher">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
     </header>
-    <main>
-        <section></section>
-        <section></section>
+
+    <main class="mt-5">
+        <div class="container">
+            <div class="d-flex mb-3 mp-1 align-items-center">
+                <div class="p-2">
+                    <div class="btn-group sizeBtn">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle custom-btn" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ingrédients
+                        </button>
+                        <ul class="dropdown-menu p-1">
+                            <li>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Search Ingredient">
+                                    <span class="dropdown-clear-icon position-absolute d-none"><i
+                                            class="fas fa-times"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                            </li>
+                            <li>
+                                <!--Informations insérer dynamiquement-->
+                                <div id="ingredientItems"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="selectedIngredients" class="selected-labels mt-2"></div>
+                </div>
+                <div class="p-2">
+                    <div class="btn-group sizeBtn">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle custom-btn" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Appareils
+                        </button>
+                        <ul class="dropdown-menu p-1">
+                            <li>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Search Appliance">
+                                    <span class="dropdown-clear-icon position-absolute d-none"><i
+                                            class="fas fa-times"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                            </li>
+                            <li>
+                                <!--Informations insérer dynamiquement-->
+                                <div id="applianceItems"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="selectedAppliance" class="selected-labels mt-2"></div>
+                </div>
+                <div class="p-2">
+                    <div class="btn-group sizeBtn">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle custom-btn" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ustensiles
+                        </button>
+                        <ul class="dropdown-menu p-1">
+                            <li>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" aria-label="Search Utensil">
+                                    <span class="dropdown-clear-icon position-absolute d-none"><i
+                                            class="fas fa-times"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                            </li>
+                            <li>
+                                <!--Informations insérer dynamiquement-->
+                                <div id="ustensilItems"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="selectedUtensil" class="selected-labels mt-2"></div>
+                </div>
+                <div class="ms-auto p-2">
+                    <!--Informations insérer dynamiquement-->
+                    <h3><span id="recipeCount"></span> recettes</h3>
+                </div>
+            </div>
+        </div>
+        <!--Affichage des cartes-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Les cartes de recettes insérées dynamiquement -->
+                </div>
+            </div>
+        </div>
     </main>
+    <script src="data/recipes.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
 </html>

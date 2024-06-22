@@ -1,0 +1,243 @@
+/* styles.css */
+body {
+    background: #EDEDED;
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Anton', sans-serif;
+}
+
+header {
+    background-image: url('/assets/backgroundimg/lampos.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 683px;
+}
+
+.searchContainer {
+    margin-top: 154px;
+}
+
+
+.search-bar {
+    max-width: 954px;
+    margin: 0 auto;
+}
+
+.search-button {
+    left: -60px;
+    top: 11px;
+    width: 51px;
+    height: 52px;
+}
+
+.search-button i {
+    font-size: 20px;
+
+}
+
+.colorHover:hover {
+    background-color: #FFD15B;
+}
+
+.input-group .btn {
+    z-index: 9999;
+}
+
+.formHeight {
+    height: 72px;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+.dropdown-item:hover {
+    background-color: #FFD15B;
+}
+
+/* Styles pour les boutons dropdown */
+.custom-btn {
+    border-radius: 11px;
+    background: #FFF;
+    padding: 17px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+
+.d-flex .p-2 {
+    margin-right: 66px;
+}
+
+
+.d-flex .p-2:last-child {
+    margin-right: 0;
+}
+
+#recipeCount {
+    font-family: 'Anton', sans-serif;
+}
+
+.sizeBtn {
+    width: 173px;
+}
+
+.custom-btn::after {
+    margin-left: 10px;
+}
+
+/* Card styles */
+.recette-card {
+    width: 380px;
+    height: 790px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.card-image {
+    position: relative;
+    width: 380px;
+    height: 253px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge-time {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 14px;
+    background: var(--Yellow, #FFD15B);
+    padding: 5px 15px;
+    color: var(--Black, #1B1B1B);
+    text-align: center;
+    font-family: 'Manrope';
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.recipe-title {
+    color: #000;
+    font-family: 'Anton';
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.recipe-subtitle {
+    color: var(--Grey, #7A7A7A);
+    font-family: 'Manrope';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.08px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.recipe-description {
+    font-family: 'Manrope';
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.ingredients-title {
+    color: var(--Grey, #7A7A7A);
+    font-family: 'Manrope';
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.08px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.ingredients-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ingredient-item {
+    display: grid;
+    padding-bottom: 10px;
+    width: 50%;
+}
+
+.ingredient-name {
+    font-family: 'Manrope';
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--Black, #1B1B1B);
+}
+
+.ingredient-quantity {
+    font-family: 'Manrope';
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--Grey, #7A7A7A);
+}
+
+.clear-icon {
+    top: 26px;
+    right: 131px;
+    font-size: 18px;
+    color: #7A7A7A;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.dropdown-clear-icon {
+    top: 11px;
+    right: 55px;
+    font-size: 12px;
+    color: #7A7A7A;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.selected-labels {
+    display: grid;
+    gap: 10px;
+}
+
+.label {
+    border-radius: 10px;
+    background: #FFD15B;
+    padding: 17px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.label .close-icon {
+    font-size: 24px;
+    color: #1B1B1B;
+    cursor: pointer;
+    padding-left: 50px;
+}
