@@ -60,6 +60,7 @@ header {
 .dropdown-menu {
     max-height: 200px;
     overflow-y: auto;
+    top: 66px;
 }
 
 
@@ -219,6 +220,10 @@ header {
     color: #7A7A7A;
     cursor: pointer;
     z-index: 999;
+}
+
+#ingredientItems{
+    width: 195px;
 }
 
 .selected-labels {
