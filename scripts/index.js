@@ -1,4 +1,8 @@
-// scripts/index.js
+// index.js
+
+import { rechercherRecettes } from './rechercheAvecFonctionsArray.js';
+
+let selectedLabels = [];
 
 function displayRecipes(recipes) {
     const container = document.querySelector('.container .row');
@@ -7,7 +11,7 @@ function displayRecipes(recipes) {
     recipes.forEach(recipe => {
         const col = document.createElement('div');
         col.classList.add('col-md-4');
-        
+
         col.innerHTML = `
             <div class="card recette-card">
                 <div class="card-image">
@@ -42,7 +46,7 @@ function displayRecipes(recipes) {
     updateFilters(recipes);
 }
 
-//Les ingrédients, appareils et ustensiles sont extraits des recettes et ajoutés à des ensembles (Set) pour garantir l'unicité.
+// Les ingrédients, appareils et ustensiles sont extraits des recettes et ajoutés à des ensembles (Set) pour garantir l'unicité.
 function updateFilters(recipes) {
     const ingredientsSet = new Set();
     const appliancesSet = new Set();
@@ -79,8 +83,11 @@ function handleSearchInput() {
     searchInput.addEventListener('input', () => {
         if (searchInput.value.length > 0) {
             clearIcon.classList.remove('d-none');
+            const filteredRecipes = rechercherRecettes(recipes, searchInput.value, selectedLabels);
+            displayRecipes(filteredRecipes);
         } else {
             clearIcon.classList.add('d-none');
+            displayRecipes(recipes); // Afficher toutes les recettes si la barre de recherche est vide
         }
     });
 
@@ -88,6 +95,7 @@ function handleSearchInput() {
         searchInput.value = '';
         clearIcon.classList.add('d-none');
         searchInput.focus(); // Re-focus sur l'input après effacement
+        displayRecipes(recipes); // Afficher toutes les recettes si la barre de recherche est vide
     });
 }
 
@@ -129,7 +137,15 @@ function createLabel(text, containerId) {
 
     // Ajouter un événement de clic à l'icône de fermeture pour supprimer le label
     label.querySelector('.close-icon').addEventListener('click', () => {
+        const index = selectedLabels.indexOf(text);
+        if (index !== -1) {
+            selectedLabels.splice(index, 1);
+        }
         label.remove();
+        // Rechercher à nouveau après la suppression d'un label
+        const searchInput = document.querySelector('.search-bar input');
+        const filteredRecipes = rechercherRecettes(recipes, searchInput.value, selectedLabels);
+        displayRecipes(filteredRecipes);
     });
 
     document.getElementById(containerId).appendChild(label);
@@ -138,20 +154,35 @@ function createLabel(text, containerId) {
 // Exemple d'utilisation : Ajouter un label lorsqu'un ingrédient est sélectionné
 document.getElementById('ingredientItems').addEventListener('click', function (event) {
     if (event.target.tagName === 'LI') {
+        selectedLabels.push(event.target.textContent);
         createLabel(event.target.textContent, 'selectedIngredients');
+        // Rechercher à nouveau après l'ajout d'un label
+        const searchInput = document.querySelector('.search-bar input');
+        const filteredRecipes = rechercherRecettes(recipes, searchInput.value, selectedLabels);
+        displayRecipes(filteredRecipes);
     }
 });
 
 // Répéter la logique de l'événement ci-dessus pour les appareils et les ustensiles
 document.getElementById('applianceItems').addEventListener('click', function (event) {
     if (event.target.tagName === 'LI') {
+        selectedLabels.push(event.target.textContent);
         createLabel(event.target.textContent, 'selectedAppliance');
+        // Rechercher à nouveau après l'ajout d'un label
+        const searchInput = document.querySelector('.search-bar input');
+        const filteredRecipes = rechercherRecettes(recipes, searchInput.value, selectedLabels);
+        displayRecipes(filteredRecipes);
     }
 });
 
 document.getElementById('ustensilItems').addEventListener('click', function (event) {
     if (event.target.tagName === 'LI') {
+        selectedLabels.push(event.target.textContent);
         createLabel(event.target.textContent, 'selectedUtensil');
+        // Rechercher à nouveau après l'ajout d'un label
+        const searchInput = document.querySelector('.search-bar input');
+        const filteredRecipes = rechercherRecettes(recipes, searchInput.value, selectedLabels);
+        displayRecipes(filteredRecipes);
     }
 });
 
