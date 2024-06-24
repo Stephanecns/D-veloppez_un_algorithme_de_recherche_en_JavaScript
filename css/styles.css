@@ -105,7 +105,7 @@ header {
 
 /* Card styles */
 .recette-card {
-    width: 380px;
+
     height: 790px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -116,7 +116,7 @@ header {
 
 .card-image {
     position: relative;
-    width: 380px;
+
     height: 253px;
 }
 
@@ -222,7 +222,7 @@ header {
     z-index: 999;
 }
 
-#ingredientItems{
+#ingredientItems {
     width: 195px;
 }
 
